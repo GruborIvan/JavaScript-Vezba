@@ -88,9 +88,9 @@ console.log(zooInventory(Animals));
 
 
 // OBJECTS
-var person = {firstName: 'John', lastName: 'Will',Age: 45};
+var person = {firstName: 'John', lastName: 'Will', age: 45};
 
-var jsonPerson = '{"firstName" : "John","lastName" : "Will","Age" : 45}';
+var jsonPerson = '{"firstName" : "John","lastName" : "Will","age" : 45}';
 
 console.log(person);
 console.log(jsonPerson);
@@ -113,3 +113,48 @@ var parsed = JSON.parse(numbersJSON);
 for (let i = 0; i < parsed.length; i++) {
     console.log(parsed[i]);
 }
+
+
+// Class function..
+function User(ime,prezime,godine) {
+    this.ime = ime;
+    this.prezime = prezime;
+    this.godine = godine;
+}
+
+const user1 = new User('Marko','Markovic',21);
+
+
+class Korisnik {
+    constructor(ime,prezime,godine) {
+        this.ime = ime;
+        this.prezime = prezime;
+        this.godine = godine;
+    }
+}
+
+const user2 = new Korisnik('Marko','Markovic',21);
+
+console.log(user1);
+console.log(user2);
+
+
+// PROMISES
+// Ako ostavimo poziv ka reject(), desice se prekid i ispisace se FAILED!
+// Ako ostavimo poziv ka successs(), uspece Promise, i ispisace se YAY!
+const myPromise = new Promise((success,reject) => {
+   
+    setTimeout(() => {
+        //success();
+        reject();
+    },2000);
+
+});
+
+myPromise.then(() => {
+    console.log('YAY!');
+})
+
+myPromise.catch(() => {
+    console.log('FAILED!');
+});
