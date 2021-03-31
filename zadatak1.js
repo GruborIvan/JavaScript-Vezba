@@ -1,25 +1,21 @@
-var ex0 = 'Globalna promenjiva kao';
-// U celom kodu je dostupna ova promenjiva..
+// Part 1
+var numbers = [2,4,6,3,5,9,10,1];
 
-function fun1() {
-    console.log(ex0);
-    var ex4 = 'Iz funkcije!';
-};
+var numbers = numbers.map((number) => {
+    return (number * number);
+});
 
-fun1();
+console.log(numbers);
 
-console.log(ex4);  // <== Nemoguce pronaci varijablu, definisana je samo u funkciji!
+// Part2
+(function(num1,num2) {
+    console.log(num1 + num2);
+}(7,5));
 
-for (let i = 0; i < 5; i++) {
-    var ex1 = 'Variable with var';
-    let ex2 = 'Variable with let';
-}
+// Part3 
+const timesTwo = (number) => {
+    return number * 2
+  }
 
-console.log(ex1); // var promenjiva je dostupna i van bloka.
-console.log(ex2); // let promenjiva je dostupna samo u okviru bloka.
+console.log(timesTwo(22));
 
-
-// U funkciji definisana varijabla nije vidljiva van funkcije nikad.
-// U bloku definisana varijabla je vidljiva ako je definisana sa var,
-// a nije vidljiva ako je definisana sa let
-console.log('Logging test!');
