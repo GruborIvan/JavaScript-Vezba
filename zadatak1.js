@@ -145,8 +145,8 @@ console.log(user2);
 const myPromise = new Promise((success,reject) => {
    
     setTimeout(() => {
-        //success();
-        reject();
+        success();
+        //reject();
     },2000);
 
 });
@@ -158,3 +158,51 @@ myPromise.then(() => {
 myPromise.catch(() => {
     console.log('FAILED!');
 });
+
+class Character {
+
+    static characterCount = 0;
+
+    constructor() {
+        if (this.constructor === Character) {
+            throw new Error('Abstract class cannot have an instance.');
+        }
+
+        this.x = Math.round(Math.random() * 10);
+        this.y = Math.round(Math.random() * 10);
+        characterCount++;
+    }
+
+    GetCoords() {
+        console.log('X : ' + this.x + ' Y: ' + this.y);
+    }
+
+    SetCoords(x,y) {
+        if (!isNaN(x) && !isNaN(y) && x > 0 && x <= 10 && y > 0 && y <= 10) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+}
+
+class PlayableCharacter extends Character {
+    
+}
+
+class NonPlayableCharacter extends Character {
+
+}
+
+
+var p1 = new PlayableCharacter();
+var p2 = new NonPlayableCharacter();
+
+// Ako otkomentarisemo ovu metodu dobijamo gresku da abstraktna klasa ne moze biti instancirana.
+//var p3 = new Character();
+
+p2.SetCoords(13,28);
+
+p1.GetCoords();
+p2.GetCoords();
+
+console.log('Character count: ' + Character.characterCount);
