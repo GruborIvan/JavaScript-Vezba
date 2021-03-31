@@ -22,3 +22,4 @@ console.log(ex2); // let promenjiva je dostupna samo u okviru bloka.
 // U funkciji definisana varijabla nije vidljiva van funkcije nikad.
 // U bloku definisana varijabla je vidljiva ako je definisana sa var,
 // a nije vidljiva ako je definisana sa let
+console.log('Logging test!');
