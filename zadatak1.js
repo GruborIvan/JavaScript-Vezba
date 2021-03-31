@@ -90,14 +90,26 @@ console.log(zooInventory(Animals));
 // OBJECTS
 var person = {firstName: 'John', lastName: 'Will',Age: 45};
 
-var jsonPerson = {"firstName" : "John","lastName" : "Will","Age" : 45};
+var jsonPerson = '{"firstName" : "John","lastName" : "Will","Age" : 45}';
 
 console.log(person);
 console.log(jsonPerson);
 
-//var realPerson = JSON.parse(jsonPerson);
+// JS object to JSON format.
+var toJson = JSON.stringify(person);
+console.log(toJson);
 
-var toJson = JSON.stringify();
+// JsonString to Javascript Object.
+var toObject = JSON.parse(jsonPerson);
+console.log(toObject);
 
-//console.log(realPerson);
 
+var numbersJS = [1,2,3,4,5,6,7,8];
+console.log(JSON.stringify(numbersJS));
+
+var numbersJSON = '[1,2,3,4,5,6,7,8]';
+var parsed = JSON.parse(numbersJSON);
+
+for (let i = 0; i < parsed.length; i++) {
+    console.log(parsed[i]);
+}
