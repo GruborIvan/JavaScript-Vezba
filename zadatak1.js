@@ -62,9 +62,7 @@ function MakeFunction(numb) {
         retArr.push(i);
     }
 
-    for (let i = (numb - 1); i >= 0; i--) {
-        retArr.push(i);
-    }
+    retArr = [...retArr,...retArr.reverse()];
 
     return retArr;
 }
@@ -75,17 +73,31 @@ console.log(MakeFunction(5));
 // ANIMALS..
 
 const Animals = [
-    { Naziv: 'Zirafa', Vrsta: 'Sisar', Godine: 12 },
-    { Naziv: 'Slon', Vrsta: 'Sisar', Godine: 18 },
-    { Naziv: 'Zmija', Vrsta: 'Gmizavac', Godine: 2 },
-    { Naziv: 'Soko', Vrsta: 'Ptica', Godine: 44 }
-]
+    ['Zirafa', ['Sisar',12]],
+    ['Slon', ['Sisar',18]],
+    ['Zmija', ['Gmizavac',2]],
+    ['Soko', ['Ptica',44]]
+];
 
 function zooInventory(inputArray) {
 
-    var animalInv = [];
-    inputArray.forEach(animal => animalInv.push(animal.Naziv + ' ' + animal.Vrsta + ' je star ' + animal.Godine));
-    return animalInv;
+    return inputArray.map(animal => animal[0] + ' ' + animal[1][0] + ' je star ' + animal[1][1]);
 }
 
 console.log(zooInventory(Animals));
+
+
+// OBJECTS
+var person = {firstName: 'John', lastName: 'Will',Age: 45};
+
+var jsonPerson = {"firstName" : "John","lastName" : "Will","Age" : 45};
+
+console.log(person);
+console.log(jsonPerson);
+
+//var realPerson = JSON.parse(jsonPerson);
+
+var toJson = JSON.stringify();
+
+//console.log(realPerson);
+
